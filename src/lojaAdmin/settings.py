@@ -1,5 +1,8 @@
 from pathlib import Path
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles_build', 'static')
@@ -9,8 +12,7 @@ STATICFILES_DIRS = [
 ]
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
