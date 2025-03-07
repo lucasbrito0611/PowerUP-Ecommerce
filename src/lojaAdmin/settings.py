@@ -2,13 +2,17 @@ from pathlib import Path
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
-SECRET_KEY = 'django-insecure-uzgk3!+3la^gcs0%ir-^tt48s(%gz0-mm(l4rts7!2k7$*pogs'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR.parent, 'loja', 'static')
+]
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 LOGIN_URL = '/login/'
 
@@ -56,7 +60,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'lojaAdmin.wsgi.application'
+WSGI_APPLICATION = 'lojaAdmin.wsgi.app'
 
 
 # Database
@@ -64,8 +68,13 @@ WSGI_APPLICATION = 'lojaAdmin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'powerupdb',
+        'USER': 'powerupdb_owner',
+        'PASSWORD': 'npg_VPd8eGFxk6XS',
+        'HOST': 'ep-orange-art-a8omfh0t-pooler.eastus2.azure.neon.tech',
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'},
     }
 }
 
