@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR.parent, 'loja', 'static')
+    os.path.join(BASE_DIR.parent, 'src', 'loja', 'static')
 ]
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
