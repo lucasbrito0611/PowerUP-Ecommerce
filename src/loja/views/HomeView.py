@@ -61,3 +61,9 @@ def home_view(request):
         return render(request, template_name='admin/home.html', context=context_admin, status=200)
     else:
         return render(request, template_name='user/home.html', context=context_user, status=200)
+    
+def get_image(request, produto_id):
+    produto = Produto.objects.get(id=produto_id)
+    if produto.imagem:
+        return HttpResponse(produto.imagem, content_type="image/jpeg")
+    return HttpResponse("Nenhuma imagem encontrada", status=404)

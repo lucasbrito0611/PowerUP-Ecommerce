@@ -41,7 +41,7 @@ def criar_produto_view(request):
                 elif desconto < 0 or int(desconto) > 100:
                     messages.error(request, 'O desconto deve ser entre 0 e 100!', extra_tags='criar-produto')
                 else:
-                    Produto.objects.create(nome=nome, descricao=descricao, preco=preco, porcentagem_desconto=desconto, categoria=categoria, imagem=imagem)
+                    Produto.objects.create(nome=nome, descricao=descricao, preco=preco, porcentagem_desconto=desconto, categoria=categoria, imagem=imagem.read())
                     messages.success(request, 'Produto criado com sucesso!', extra_tags='criar-produto')
             except ValueError:
                 messages.error(request, 'O preço deve ser um número!', extra_tags='criar-produto')

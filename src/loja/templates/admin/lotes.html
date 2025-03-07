@@ -105,7 +105,7 @@
             {% for lote in lotes %}
                 <div class="card-produto container-lote-vencimento">
                     <div class="container-imgProduto">
-                        <img class="imagem-produto" src="/media/{{lote.produto.imagem}}" alt="">
+                        <img class="imagem-produto" src="{% url 'get_image' lote.produto.id %}" alt="">
                     </div>
                     <div class="produto-info">
                         <h5 class="titulo-produto">{{lote.produto.nome}}</h5>

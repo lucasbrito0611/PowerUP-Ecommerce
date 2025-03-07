@@ -131,7 +131,7 @@
                             {% if prod.porcentagem_desconto != 0 %}
                             <a class="card-produto" href="{% url 'produto' prod.id %}">
                                 <div class="container-imgProduto">
-                                    <img class="imagem-produto" src="/media/{{prod.imagem}}" alt="">
+                                    <img class="imagem-produto" src="{% url 'get_image' prod.id %}" alt="">
                                 </div>
                                 <form action="{% url 'favorito' %}" method="POST">
                                     {% csrf_token %}
@@ -175,7 +175,7 @@
                 <div class="produtos">
                     {% for prod in produtos_mais_vendidos %}
                         <a class="card-produto" href="{% url 'produto' prod.id %}">
-                            <img class="imagem-produto" src="/media/{{prod.imagem}}" alt="">
+                            <img class="imagem-produto" src="{% url 'get_image' prod.id %}" alt="">
                             <form action="{% url 'favorito' %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="produto_id" value="{{ prod.id }}">

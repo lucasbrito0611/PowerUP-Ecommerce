@@ -53,7 +53,7 @@ def adicionar_ao_carrinho(request, idProduto):
             produto=produto,
             quantidade=quantidade,
             preco=produto.preco_calculado(),
-            imagem=produto.imagem.url
+            imagem=f"/produto/imagem/{produto.id}/"
         )
     
     carrinho_item.save()

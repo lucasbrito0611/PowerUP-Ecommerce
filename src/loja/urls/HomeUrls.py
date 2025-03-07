@@ -1,6 +1,6 @@
 from django.urls import path
 
-from loja.views.HomeView import home_view
+from loja.views.HomeView import home_view, get_image
 from loja.views.user.PromocoesView import promocoes_view
 from loja.views.user.CadastroView import cadastro_view
 from loja.views.user.LoginView import login_view
@@ -23,6 +23,7 @@ from loja.views.admin.DevolucoesView import list_devolucoes_view, edit_devolucao
 urlpatterns = [
     # USER
     path("", home_view, name='home'),
+    path("produto/imagem/<int:produto_id>", get_image, name='get_image'),
     path("promocoes/", promocoes_view, name='promocoes'),
     path("cadastro/", cadastro_view, name='cadastro'),
     path("login/", login_view, name='login'),

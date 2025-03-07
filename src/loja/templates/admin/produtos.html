@@ -120,7 +120,7 @@
             {% for prod in produtos %}
                 <div class="card-produto">
                     <div class="container-imgProduto">
-                        <img class="imagem-produto" src="/media/{{prod.imagem}}" alt="">
+                        <img class="imagem-produto" src="{% url 'get_image' prod.id %}" alt="">
                     </div>
                     {% if prod.porcentagem_desconto == 0 %}
                         <div class="produto-info">

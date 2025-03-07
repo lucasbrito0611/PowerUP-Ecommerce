@@ -14,7 +14,7 @@ class Produto(models.Model):
     nome = models.CharField(null=False, max_length=100)
     preco = models.FloatField(null=False, validators=[numero_nao_negativo])
     descricao = models.TextField(null=False)
-    imagem = models.ImageField(null=False, blank=True, upload_to='produtos/')
+    imagem = models.BinaryField(null=True, blank=True)
     porcentagem_desconto = models.IntegerField(null=True, default=0, validators=[porcentagem])
     categoria = models.CharField(max_length=50, choices=CATEGORIAS, default='suplementos')
 
