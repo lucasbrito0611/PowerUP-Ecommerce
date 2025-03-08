@@ -57,7 +57,6 @@ def edit_produto_view(request):
         desconto = request.POST.get('desconto') or 0
         categoria = request.POST.get('categoria')
         imagem = request.FILES.get('imagem')
-        print(imagem)
 
         try:
             preco = float(preco)
@@ -79,7 +78,7 @@ def edit_produto_view(request):
                     produto.porcentagem_desconto = desconto
                     produto.categoria = categoria
                     if imagem: 
-                            produto.imagem = imagem
+                            produto.imagem = imagem.read()
 
                     produto.save()
                     messages.success(request, 'Produto atualizado com sucesso!', extra_tags='editar-produto')
