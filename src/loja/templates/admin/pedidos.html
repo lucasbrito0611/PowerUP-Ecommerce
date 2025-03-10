@@ -97,7 +97,7 @@
                                             <div class="pedido-itens">
                                                 {% for item in pedido.itens.all %}
                                                     <div class="container-item">
-                                                        <img src="{{ item.imagem }}" alt="Imagem do item do pedido">
+                                                        <img src="{% url 'get_image' item.produto.id %}" alt="Imagem do item do pedido">
                                                         <div class="container-item-info">
                                                             <div class="nome-porcentagem">
                                                                 <h3>{{item.produto.nome}}</h3>

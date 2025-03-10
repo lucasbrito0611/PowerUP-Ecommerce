@@ -80,7 +80,7 @@
 
 .avaliarproduto-popup > div {
     width: 30em;
-    min-height: 18em;
+    height: 18em !important;
     padding: 2em 2em;
 }
 
