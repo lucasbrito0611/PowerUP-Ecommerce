@@ -57,7 +57,7 @@
                 <section class="pedidos">
                     {% for pedido_detalhe in pedidos %}
                         <div class="container-pedido">
-                            <img src="{{ pedido_detalhe.imagem }}" alt="Imagem do produto mais pedido">
+                            <img src="{% url 'get_image' pedido_detalhe.produto_id %}" alt="Imagem do produto mais pedido">
                             <div class="pedido-info">
                                 <div>
                                     <p id="data">{{ pedido_detalhe.pedido.dt_hora|date:"d M, Y" }}</p>
@@ -101,7 +101,7 @@
                                             <div class="pedido-itens">
                                                 {% for item in pedido_detalhe.pedido.itens.all %}
                                                     <div class="container-item">
-                                                        <img src="{{ item.imagem }}" alt="Imagem do item do pedido">
+                                                        <img src="{% url 'get_image' item.produto.id %}" alt="Imagem do item do pedido">
                                                         <div class="container-item-info">
                                                             <div class="nome-porcentagem">
                                                                 <h3>{{item.produto.nome}}</h3>

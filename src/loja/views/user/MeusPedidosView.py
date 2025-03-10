@@ -15,7 +15,7 @@ def meuspedidos_view(request):
         
         pedidos_produto_destaque.append({
             'pedido': pedido,
-            'imagem': produto_destaque.imagem
+            'produto_id': produto_destaque.id
         })
     
     context = {'pedidos': pedidos_produto_destaque}

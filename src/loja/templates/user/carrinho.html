@@ -56,7 +56,7 @@
                         {% for item in carrinho_itens %}
                             <div class="container-item">
                                 <a href="{% url 'remover-item' item.id %}"><i class="bi bi-x"></i></a>
-                                <img src="{{item.imagem}}" alt="Imagem do item do carrinho">
+                                <img src="{% url 'get_image' item.produto.id %}" alt="Imagem do item do carrinho">
                                 <div class="container-item-info">
                                     <div class="nome-porcentagem">
                                         <h3>{{item.produto.nome}}</h3>

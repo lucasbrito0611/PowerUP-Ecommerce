@@ -98,7 +98,7 @@
                     <div class="produtos-finalizarpedido">
                         {% for produto in produtos %}
                             <div class="container-produto">
-                                <img src="{{produto.imagem}}" alt="Imagem do produto do carrinho">
+                                <img src="{% url 'get_image' produto.produto.id %}" alt="Imagem do produto do carrinho">
                                 <div class="container-produto-info">
                                     <div class="nome-porcentagem">
                                         <h5>{{produto.produto.nome}}</h5>
