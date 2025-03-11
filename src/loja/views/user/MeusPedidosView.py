@@ -11,11 +11,11 @@ def meuspedidos_view(request):
 
     pedidos_produto_destaque = []
     for pedido in pedidos:
-        produto_destaque = pedido.itens.order_by('-quantidade').first()
+        item_destaque = pedido.itens.order_by('-quantidade').first()
         
         pedidos_produto_destaque.append({
             'pedido': pedido,
-            'item_destaque': produto_destaque,
+            'item_destaque': item_destaque,
         })
 
     print(pedidos_produto_destaque)
