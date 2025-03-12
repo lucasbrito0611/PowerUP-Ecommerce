@@ -6,7 +6,7 @@ from loja.models import Cliente, Notificacao
 def list_notificacoes_view(request):
     cliente = Cliente.objects.get(user=request.user)
 
-    notificacoes_cliente = Notificacao.objects.filter(cliente=cliente)
+    notificacoes_cliente = Notificacao.objects.filter(cliente=cliente).order_by('-data_envio')
     notificacoes_cliente.update(lida=True)
 
     context = {'notificacoes': notificacoes_cliente}
